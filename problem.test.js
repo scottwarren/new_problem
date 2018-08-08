@@ -15,6 +15,8 @@ describe('Test the parseInt function', function() {
 
     it('should return a negative number for a large number', function() {
         expect(solution('-41395')).toEqual(-41395)
+        expect(solution('-413-95')).toEqual(-413)
+        expect(solution('-4d13-9d5')).toEqual(-4)
     })
 
     it('should return number for a large number with a 0 in the input', function() {

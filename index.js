@@ -36,9 +36,11 @@ const solution = (str = '') => {
 
     if (typeof validChars[currentChar] === 'number') {
       returnValue.push(validChars[currentChar])
-    } else if (currentChar === '-') {
+    } else if (i === 0 && currentChar === '-') {
+      // If the first character is the negative symbol, we will then later negate the number we produce from the input
       isNumberNegative = true
     } else {
+      // Stop iterating now to avoid parsing beyond the first valid number
       isCurrentValid = false
     }    
 
