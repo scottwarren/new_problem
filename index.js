@@ -7,6 +7,7 @@
  *     Outputs 4 for input '4d'
  *     Outputs 4 for input '4d444'
  *     Outputs -1 for input '-1-5'
+ * 
  * Supports returning NaN when first character is not a number
  *    
  * @param {String} str Potential string representation of a number
@@ -29,10 +30,10 @@ const solution = (str = '') => {
     '9': 9
   }
 
-  let isNumberNegative = false
-
   // Handle negative numbers
-  if (str.charAt(0) === '-') isNumberNegative = true
+  // If the first character is the negative symbol, we will then later negate the number we produce from the input
+  const isNumberNegative = str.charAt(0) === '-'
+
   if (validChars[str.charAt(0)] === undefined && str.charAt(0) !== '-') return NaN
 
   // Break input into an array
@@ -51,9 +52,8 @@ const solution = (str = '') => {
 
     if (typeof validChars[currentChar] === 'number') {
       returnValue.push(validChars[currentChar])
-    } else if (i === 0 && currentChar === '-') {
-      // If the first character is the negative symbol, we will then later negate the number we produce from the input
-      isNumberNegative = true
+    } else if (isNumberNegative === true && i === 0) {
+      // Do nothing
     } else {
       // Stop iterating now to avoid parsing beyond the first valid number
       isCurrentValid = false
