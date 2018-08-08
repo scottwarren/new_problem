@@ -1,6 +1,5 @@
-const solution = (str) => {
-  // @TODO: handle when we're not passed a string or we're passed undefined/null
-
+const solution = (str = '') => {  
+  if (typeof str !== 'string' || (str && str.length === 0)) return NaN
 
   const validChars = {
     '0': 0,
@@ -19,6 +18,7 @@ const solution = (str) => {
 
   // Handle negative numbers
   if (str.charAt(0) === '-') isNumberNegative = true
+  if (validChars[str.charAt(0)] === undefined && str.charAt(0) !== '-') return NaN
 
   // Break input into an array
   const chars = str.split('')
@@ -34,7 +34,7 @@ const solution = (str) => {
   while (isCurrentValid === true && chars.length > i) {
     const currentChar = chars[i]
 
-    if (validChars[currentChar]) {
+    if (typeof validChars[currentChar] === 'number') {
       returnValue.push(validChars[currentChar])
     } else if (currentChar === '-') {
       isNumberNegative = true
@@ -45,25 +45,16 @@ const solution = (str) => {
     i++
   }
 
-  // 10000
-  // if return value.length === 5
-  // element at position 0 is multiplied by 10000
-
-  // Math.pow()
-
   let expIndex = 0
 
   for (let index = returnValue.length - 1; index >= 0; index--) {
-    const element = returnValue[index];
-    
+
+    const element = returnValue[index]
     
     const exponent = Math.pow(10, expIndex)
-    // console.log({ index })
-    // console.log({ element })
-    // console.log({ exponent })
-    // console.log({ expIndex })
 
     result += element * exponent
+
     expIndex++
   }
   

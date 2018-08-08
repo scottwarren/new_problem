@@ -1,5 +1,7 @@
 ## Interview problem
 
+Implement parseInt while handling non-numeric characters within the input string
+
 ### Installation
 
 * Clone repo
