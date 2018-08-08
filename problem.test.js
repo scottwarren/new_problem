@@ -1,6 +1,6 @@
 var solution = require('./')
 
-describe('Tests something', function() {
+describe('Test the solution', function() {
     it('should test something', function() {
         expect(solution()).toEqual(undefined)
     })
