@@ -55,7 +55,7 @@ const solution = (str = '') => {
     } else if (isNumberNegative === true && i === 0) {
       // Do nothing
     } else {
-      // Stop iterating now to avoid parsing beyond the first valid number
+      // Stop iterating now to avoid parsing beyond the first valid group of numbers
       isCurrentValid = false
     }    
 
