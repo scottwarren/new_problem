@@ -1,3 +1,18 @@
+/**
+ * parseInt implementation in Javascript, with no support for Hex numbers, or the radial parameter
+ * 
+ * Supports negative numbers
+ * Supports non-numberic numbers in the input
+ *   Example:
+ *     Outputs 4 for input '4d'
+ *     Outputs 4 for input '4d444'
+ *     Outputs -1 for input '-1-5'
+ * Supports returning NaN when first character is not a number
+ *    
+ * @param {String} str Potential string representation of a number
+ * 
+ * @return {Number}
+ */
 const solution = (str = '') => {  
   if (typeof str !== 'string' || (str && str.length === 0)) return NaN
 
